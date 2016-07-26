@@ -1,3 +1,5 @@
+# simple check credit card algorithm
+
 def luhn_check(cc_num):
     cc_arr = [int(digit) for digit in cc_num]
     if len(cc_arr) %2 == 0:

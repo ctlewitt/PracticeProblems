@@ -1,4 +1,5 @@
 #!/bin/python3
+# https://www.hackerrank.com/challenges/the-grid-search
 
 import sys
 

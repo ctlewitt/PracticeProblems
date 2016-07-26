@@ -1,3 +1,5 @@
+# calculates the word from the list that appears the most often in the string and its count
+
 import re
 import string
 

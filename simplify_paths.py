@@ -15,9 +15,9 @@ def path_simplifier(path):
         return "/" + "/".join(new_path)
 
 
-print path_simplifier("/foo/bar////")
-print path_simplifier("/foo/./bar/./hi")
-print path_simplifier("/foo/../bar")
-print path_simplifier("/foo///bar")
+print(path_simplifier("/foo/bar////"))
+print(path_simplifier("/foo/./bar/./hi"))
+print(path_simplifier("/foo/../bar"))
+print(path_simplifier("/foo///bar"))
 
 # could do by filtering

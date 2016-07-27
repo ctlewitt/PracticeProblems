@@ -26,6 +26,7 @@ def next_char_after_prefix_length(prefix_len, my_str):
     next_char_dict[my_str[-prefix_len:]].add('\0')
     return next_char_dict
 
+# get the maximum length of all of the values in a given dict
 def get_max_len_val(my_dict):
     return reduce(max, map(len, my_dict.values()), 0)
 

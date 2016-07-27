@@ -1,3 +1,5 @@
+#This is refactored from James Porter's code, based on his workshop
+
 import random
 import time
 

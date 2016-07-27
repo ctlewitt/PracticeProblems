@@ -211,3 +211,31 @@ def call_internet():
 
 
 
+# decorators
+# functions that take functions and return functions
+# you call the function just the same and then the decorator is executed
+
+def logged(func):
+    print("I am about to execute")
+    func()
+    print("I just executed the function")
+
+def hello():
+    return "hello world"
+
+hello = logged(hello)
+
+@logged
+def hello():
+    return "hello world"
+
+#*args can receive any number of arguments
+
+def logged(f):
+    name = f.__name__
+    def wrapper(*args):
+        print ("about to call {}".format(name))
+        ret_val = f(*args)
+        print("just called {}".format(name))
+        return ret_val
+    return wrapper

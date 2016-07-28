@@ -10,12 +10,13 @@ def random_list(n):
 def time_me(func):
     def timed_funcion(list):
         start = time.time()
-        func(list)
+        ret_val = func(list)
         end = time.time()
         total_time = end - start
         print("sorting list of size {} with {} took {} milliseconds".format(
             len(list), func.__name__, total_time * 1000)
         )
+        return ret_val
     return timed_funcion
 
 @time_me

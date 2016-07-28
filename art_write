@@ -1,0 +1,55 @@
+#!/usr/bin/python3
+
+# art-write a command line tool that takes a string and number. The string will be either 'square' or 'diamond',
+# and the number will be the maximum width of the desired shape. Draw the shape using the the character of your choice.
+
+import sys
+
+#
+# $ art square 3
+# xxx
+# xxx
+# xxx
+#
+# $ art diamond 3
+#  x
+# xxx
+#  x
+#
+
+def print_square(size):
+    for line in range(size):
+        print('*'*size)
+
+
+def print_diamond(size):
+    middle = (size - 1) / 2
+    offset = 0 if size % 2 else 1
+    for row in range(size):
+        for col in range(size):
+            if col - row > middle + offset:
+                print(' ', end="")
+            elif row - col > middle + offset:
+                print(' ', end="")
+            elif row + col > middle * 3 + offset:
+                print(' ', end="")
+            elif row + col < middle - offset:
+                print(' ', end="")
+            else:
+                print('*', end="")
+        print()
+
+_, shape, size = sys.argv
+size = int(size)
+
+if shape == "square":
+    print_square(size)
+elif shape == "diamond":
+    print_diamond(size)
+else:
+    print("invalid shape")
+
+
+
+print(shape)
+print(size)

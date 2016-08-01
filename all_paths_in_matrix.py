@@ -52,6 +52,7 @@ def create_matrix(height, width):
         mat.append([None]*width)
     return mat
 
+# test get adjacent neighbors and get neighbors with square matrix
 mat = create_matrix(5,5)
 print(get_adjacent_neighbors(mat, [2,4]))
 print(get_adjacent_neighbors(mat, [0,0]))
@@ -62,7 +63,7 @@ print(get_neighbors(mat, [[2,3],[2,1],[3,2],[2,2]]))
 print(get_neighbors(mat, [[3,2],[1,2],[2,2]]))
 print(get_neighbors(mat, [[2,2]]))
 
-
+# test get adjacent neighbors and get neighbors with rectangular matrix
 mat1 = create_matrix(4,3)
 print(get_adjacent_neighbors(mat1, [2,2]))
 print(get_adjacent_neighbors(mat1, [0,0]))
@@ -73,13 +74,15 @@ print(get_neighbors(mat1, [[2,1],[3,2],[2,2]]))
 print(get_neighbors(mat1, [[3,2],[1,2],[2,2]]))
 print(get_neighbors(mat1, [[2,2]]))
 
+# test all_paths for square matrix
 mat2 = create_matrix(3,3)
 print(all_paths(mat2, [0,0]))
 
+# test all_paths for smaller, square matrix
 mat3 = create_matrix(2,2)
 print(all_paths(mat3, [0, 0]))
 
-
+# test all_paths for rectangular matrix (where paths are cut off)
 mat4 = create_matrix(6,1)
 print(all_paths(mat4, [2, 0]))
 print(all_paths(mat4, [0, 0]))

@@ -1,3 +1,5 @@
+# recursively find all paths in a matrix starting at a point
+
 Y = 0
 X = 1
 
@@ -44,62 +46,40 @@ def all_paths_aux(mat, path_so_far):
     return paths
 
 
-# mat = []
-# for _ in range(5):
-#     mat .append([None]*5)
-#
-# print(mat)
-#
-# print(get_adjacent_neighbors(mat, [2,4]))
-# print(get_adjacent_neighbors(mat, [0,0]))
-# print(get_adjacent_neighbors(mat, [2,2]))
-#
-# print(get_neighbors(mat, [[2,3],[2,1],[3,2],[1,2],[2,2]]))
-# print(get_neighbors(mat, [[2,3],[2,1],[3,2],[2,2]]))
-# print(get_neighbors(mat, [[3,2],[1,2],[2,2]]))
-# print(get_neighbors(mat, [[2,2]]))
-#
-#
-# mat1 = []
-# for _ in range(4):
-#     mat1.append([None]*3)
-#
-# print(get_adjacent_neighbors(mat1, [2,2]))
-# print(get_adjacent_neighbors(mat1, [0,0]))
-# print(get_adjacent_neighbors(mat1, [2,1]))
-#
-# print(get_neighbors(mat1, [[2,1],[3,2],[1,2],[2,2]]))
-# print(get_neighbors(mat1, [[2,1],[3,2],[2,2]]))
-# print(get_neighbors(mat1, [[3,2],[1,2],[2,2]]))
-# print(get_neighbors(mat1, [[2,2]]))
-#
+def create_matrix(height, width):
+    mat = []
+    for _ in range(height):
+        mat.append([None]*width)
+    return mat
+
+mat = create_matrix(5,5)
+print(get_adjacent_neighbors(mat, [2,4]))
+print(get_adjacent_neighbors(mat, [0,0]))
+print(get_adjacent_neighbors(mat, [2,2]))
+
+print(get_neighbors(mat, [[2,3],[2,1],[3,2],[1,2],[2,2]]))
+print(get_neighbors(mat, [[2,3],[2,1],[3,2],[2,2]]))
+print(get_neighbors(mat, [[3,2],[1,2],[2,2]]))
+print(get_neighbors(mat, [[2,2]]))
 
 
-mat2 = []
-for _ in range(3):
-    mat2 .append([None]*3)
+mat1 = create_matrix(4,3)
+print(get_adjacent_neighbors(mat1, [2,2]))
+print(get_adjacent_neighbors(mat1, [0,0]))
+print(get_adjacent_neighbors(mat1, [2,1]))
 
-print(mat2)
+print(get_neighbors(mat1, [[2,1],[3,2],[1,2],[2,2]]))
+print(get_neighbors(mat1, [[2,1],[3,2],[2,2]]))
+print(get_neighbors(mat1, [[3,2],[1,2],[2,2]]))
+print(get_neighbors(mat1, [[2,2]]))
 
+mat2 = create_matrix(3,3)
 print(all_paths(mat2, [0,0]))
 
-mat3 = []
-for _ in range(2):
-    mat3.append([None] * 2)
-
-print(mat3)
-
+mat3 = create_matrix(2,2)
 print(all_paths(mat3, [0, 0]))
 
 
-mat4 = []
-for _ in range(6):
-    mat4.append([None] * 1)
-
-print(mat4)
-
+mat4 = create_matrix(6,1)
 print(all_paths(mat4, [2, 0]))
 print(all_paths(mat4, [0, 0]))
-
-
-    # print([[0,0]append([2,2]]))

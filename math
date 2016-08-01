@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 # Math: write a commandn line tool that takes an operator (+ or x) and any number of numbers, and prints out the result
 
 import sys
@@ -8,10 +10,26 @@ _, op, *args = sys.argv
 arr = map(int, args)
 
 if op == "x":
-    print("x")
     print(reduce(mul, arr, 1))
 elif op == "+":
-    print("+")
     print(sum(arr))
 else:
     print("Bad operator; must use + or x")
+
+
+"""
+tested with:
+python3 math.py x 4 5 3
+python3 math.py x 4 5
+python3 math.py x 4
+python3 math.py x
+python3 math.py x -3 -3 -3
+python3 math.py x -3 -2
+
+python3 math.py + 4 5 3
+python3 math.py + 4 5
+python3 math.py + 4
+python3 math.py +
+python3 math.py + -3 -4
+
+"""

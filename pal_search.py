@@ -1,14 +1,20 @@
 # palsearch: write a function that takes a string and a filename and finds a palindrome containing the substring in the
 # file
 
+
 def pal_search(my_str, my_file):
     file_str = ""
     with open(my_file, 'r') as read_f:
         for line in read_f:
             file_str += line.lower().strip().replace(" ", "")
     print(file_str)
-    start_indices = get_substring_indices(my_str, file_str)
-    for start_idx in start_indices:
+    forward_indices = get_substring_indices(my_str, file_str)
+    # reverse_indices has the exclusive(non-inclusive) indices of instances of reversed my_str
+    reverse_indices = [idx + len(my_str) for idx in get_substring_indices(my_str[::-1], file_str)]
+    for start_idx in reverse_indices:
+        print(str(start_idx) + file_str[start_idx: start_idx + len(my_str)])
+
+    for start_idx in forward_indices:
         print(str(start_idx) + file_str[start_idx: start_idx + len(my_str)])
 
 

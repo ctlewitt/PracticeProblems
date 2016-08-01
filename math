@@ -19,17 +19,17 @@ else:
 
 """
 tested with:
-python3 math.py x 4 5 3
-python3 math.py x 4 5
-python3 math.py x 4
-python3 math.py x
-python3 math.py x -3 -3 -3
-python3 math.py x -3 -2
+python3 math x 4 5 3
+python3 math x 4 5
+python3 math x 4
+python3 math x
+python3 math x -3 -3 -3
+python3 math x -3 -2
 
-python3 math.py + 4 5 3
-python3 math.py + 4 5
-python3 math.py + 4
-python3 math.py +
-python3 math.py + -3 -4
+python3 math + 4 5 3
+python3 math + 4 5
+python3 math + 4
+python3 math +
+python3 math + -3 -4
 
 """

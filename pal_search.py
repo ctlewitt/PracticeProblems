@@ -31,7 +31,15 @@ def pal_search(my_str, my_file):
 
 # helper to check if a string is a palindrome
 def is_palindrome(possible_palindrome):
-    pass
+    if possible_palindrome == "":
+        return True
+    if len(possible_palindrome) == 1:
+        return True
+    if possible_palindrome[0] != possible_palindrome[-1]:
+        # first and last chars don't match
+        return False
+    # first and last chars match; remove and check substring
+    return is_palindrome(possible_palindrome[1:len(possible_palindrome)-1])
 
 # helper to get all indicies in a string where a substring occurs
 def get_substring_indices(my_substr, my_bigstr):
@@ -46,4 +54,4 @@ def get_substring_indices(my_substr, my_bigstr):
             start_indices.append(next_index)
     return start_indices
 
-pal_search("test", "pal_search.txt")
+print(pal_search("test", "pal_search.txt"))

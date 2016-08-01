@@ -3,20 +3,34 @@
 
 
 def pal_search(my_str, my_file):
+    if my_str is None or my_str == "":
+        return my_str
     file_str = ""
     with open(my_file, 'r') as read_f:
         for line in read_f:
             file_str += line.lower().strip().replace(" ", "")
     print(file_str)
-    forward_indices = get_substring_indices(my_str, file_str)
+    forward_start_indices = get_substring_indices(my_str, file_str)
     # reverse_indices has the exclusive(non-inclusive) indices of instances of reversed my_str
-    reverse_indices = [idx + len(my_str) for idx in get_substring_indices(my_str[::-1], file_str)]
-    for start_idx in reverse_indices:
-        print(str(start_idx) + file_str[start_idx: start_idx + len(my_str)])
+    reverse_end_indices = [idx + len(my_str) for idx in get_substring_indices(my_str[::-1], file_str)]
+    for start_idx in forward_start_indices:
+        for end_idx in reverse_end_indices:
+            if start_idx < end_idx:
+                if is_palindrome(file_str[start_idx:end_idx]):
+                    return file_str[start_idx:end_idx]
+    return None
 
-    for start_idx in forward_indices:
-        print(str(start_idx) + file_str[start_idx: start_idx + len(my_str)])
 
+    # for end_idx in reverse_indices:
+    #     print(str(end_idx) + file_str[end_idx - len(my_str): end_idx])
+    #
+    # for start_idx in forward_indices:
+    #     print(str(start_idx) + file_str[start_idx: start_idx + len(my_str)])
+
+
+# helper to check if a string is a palindrome
+def is_palindrome(possible_palindrome):
+    pass
 
 # helper to get all indicies in a string where a substring occurs
 def get_substring_indices(my_substr, my_bigstr):

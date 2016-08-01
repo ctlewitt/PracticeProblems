@@ -1,4 +1,4 @@
-
+# Math: write a commandn line tool that takes an operator (+ or x) and any number of numbers, and prints out the result
 
 import sys
 from _functools import reduce

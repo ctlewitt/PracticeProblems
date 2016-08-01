@@ -1,6 +1,7 @@
 # palsearch: write a function that takes a string and a filename and finds a palindrome containing the substring in the
 # file
 
+# note: can optimize by checking if my_str is a palindrome and if it is in file_str before doing lots of work
 
 def pal_search(my_str, my_file):
     if my_str is None or my_str == "":
@@ -15,7 +16,7 @@ def pal_search(my_str, my_file):
     reverse_end_indices = [idx + len(my_str) for idx in get_substring_indices(my_str[::-1], file_str)]
     for start_idx in forward_start_indices:
         for end_idx in reverse_end_indices:
-            if start_idx < end_idx:
+            if end_idx - start_idx >= len(my_str):
                 if is_palindrome(file_str[start_idx:end_idx]):
                     return file_str[start_idx:end_idx]
     return None

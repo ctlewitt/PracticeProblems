@@ -33,20 +33,20 @@ def link(word, dictionary):
 # into unicode because the alphabet gets larger...but so does a dictionary, typically, if it has words with non-ascii
 # characters
 def improved_link(word, dictionary):
-    re_words = []
+    transformed_words = []
     # loop through all in between (and before and after) positions
     for pos in range(len(word) + 1):
         for char in string.ascii_letters:
             # insert a character
-            re_words.append(word[:pos] + char + word[pos:])
+            transformed_words.append(word[:pos] + char + word[pos:])
     for pos in range(len(word)):
         for char in string.ascii_letters:
             # replace a character
-            re_words.append(word[:pos] + char + word[pos+1:])
+            transformed_words.append(word[:pos] + char + word[pos+1:])
             # remove a character
-            re_words.append(word[:pos] + word[pos+1:])
+            transformed_words.append(word[:pos] + word[pos+1:])
     related_words = set()
-    for re_word in re_words:
+    for re_word in transformed_words:
         if re_word in dictionary:
             related_words.add(re_word)
     return related_words

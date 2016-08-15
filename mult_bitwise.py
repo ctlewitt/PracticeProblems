@@ -1,3 +1,9 @@
+# Cracking the Coding Interview
+# 8.5 Recursive Multiply: write recursive function to multiply 2 pos ints.
+# minimize number of + - >> or <<
+# you cannot use * or /
+
+
 def mult(x, y):
     prod = 0
     bits_to_shift = 0

@@ -1,3 +1,6 @@
+# https://www.hackerrank.com/challenges/and-product
+# Compute the bitwise & of all numbers between x and y (inclusive)
+
 import sys
 
 

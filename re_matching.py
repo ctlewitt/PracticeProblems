@@ -12,8 +12,12 @@ class Solution(object):
             self.match[(string, regex)] = string == ""
             return self.match[(string, regex)]
         if string == "":
-            self.match[(string, regex)] = self.lookahead(regex) == "*" and len(regex) == 2
+            if self.lookahead(regex) == "*":
+                self.match[(string, regex)] = self.isMatch(string, regex[2:])
+                return self.match[(string, regex)]
+            self.match[(string, regex)] = False
             return self.match[(string, regex)]
+
         if regex[0] == ".":
             if self.lookahead(regex) == "*":
                 # . occurs no times or 1 or more times
@@ -47,4 +51,6 @@ print(doer.isMatch("ab", ".*"))
 print(doer.isMatch("aab", "c*a*b"))
 print(doer.isMatch("ab", ".*c"))
 print(doer.isMatch("aaaaaaaaaaaaab", "a*a*a*a*a*a*a*a*a*a*c"))
+print(doer.isMatch("", "c*c*"))
+print(doer.isMatch("bb", ".bab"))
 

@@ -1,23 +1,35 @@
 # https://leetcode.com/problems/regular-expression-matching/
 
+
 class Solution(object):
+    def __init__(self):
+        self.match = {}
+
     def isMatch(self, string, regex):
+        if self.match.get((string, regex)) is not None:
+            return self.match[(string, regex)]
         if regex == "":
-            return string == ""
+            self.match[(string, regex)] = string == ""
+            return self.match[(string, regex)]
         if string == "":
-            return self.lookahead(regex) == "*" and len(regex) == 2
+            self.match[(string, regex)] = self.lookahead(regex) == "*" and len(regex) == 2
+            return self.match[(string, regex)]
         if regex[0] == ".":
             if self.lookahead(regex) == "*":
                 # . occurs no times or 1 or more times
-                return self.isMatch(string, regex[2:]) or self.isMatch(string[1:], regex)
+                self.match[(string, regex)] = self.isMatch(string, regex[2:]) or self.isMatch(string[1:], regex)
+                return self.match[(string, regex)]
             else:
-                return self.isMatch(string[1:], regex[1:])
+                self.match[(string, regex)] = self.isMatch(string[1:], regex[1:])
+                return self.match[string, regex]
         else:
             if self.lookahead(regex) == "*":
                 # first char in string occurs no times or 1 or more times
-                return self.isMatch(string, regex[2:]) or (string[0] == regex[0] and self.isMatch(string[1:], regex))
+                self.match[(string, regex)] = self.isMatch(string, regex[2:]) or (string[0] == regex[0] and self.isMatch(string[1:], regex))
+                return self.match[(string, regex)]
             else:
-                return string[0] == regex[0] and self.isMatch(string[1:], regex[1:])
+                self.match[(string, regex)] = string[0] == regex[0] and self.isMatch(string[1:], regex[1:])
+                return self.match[(string, regex)]
 
     def lookahead(self, regex):
         try:
